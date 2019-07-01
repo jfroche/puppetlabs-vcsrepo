@@ -289,6 +289,12 @@ Puppet::Type.newtype(:vcsrepo) do
     defaultto :false
   end
 
+  newparam :keep_local_changes do
+    desc 'Keep local changes on files tracked by the repository when changing revision'
+    newvalues(true, false)
+    defaultto :false
+  end
+
   autorequire(:package) do
     ['git', 'git-core', 'mercurial', 'subversion']
   end
